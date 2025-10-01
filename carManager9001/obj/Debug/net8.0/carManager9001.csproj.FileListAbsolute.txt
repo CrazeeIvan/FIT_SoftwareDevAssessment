@@ -12,3 +12,4 @@ C:\Users\25CiaranMaher\source\repos\carManager9001\carManager9001\obj\Debug\net8
 C:\Users\25CiaranMaher\source\repos\carManager9001\carManager9001\obj\Debug\net8.0\carManager9001.pdb
 C:\Users\25CiaranMaher\source\repos\carManager9001\carManager9001\obj\Debug\net8.0\carManager9001.genruntimeconfig.cache
 C:\Users\25CiaranMaher\source\repos\carManager9001\carManager9001\obj\Debug\net8.0\ref\carManager9001.dll
+C:\Users\25CiaranMaher\source\repos\carManager9001\carManager9001\obj\Debug\net8.0\carManager9001.sourcelink.json

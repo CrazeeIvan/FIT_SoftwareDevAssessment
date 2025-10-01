@@ -167,7 +167,7 @@ class Program
         try
         {
             // Save statistics to an output file
-            string filePath = "output.txt";
+            string filePath = "DealershipStockReport.txt";
             using (StreamWriter writer = new StreamWriter(filePath)) 
             {
                 writer.WriteLine("Car Stock – Weekly Report");

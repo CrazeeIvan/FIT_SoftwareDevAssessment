@@ -1,0 +1,6 @@
+Car Stock – Weekly Report
+The average price: €22572.00
+The average mileage: 46072km
+Cheapest car is: 161-K-23456 Peguot 208 at €9000
+The total amount of cars is: 25
+The total value of all cars is: €564300.00
