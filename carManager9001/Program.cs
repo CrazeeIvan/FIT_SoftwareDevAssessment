@@ -85,62 +85,40 @@ class Program
     static void Main()
     {
         bool debug = true; // Debug mode flag to print extra info
+        
         List<Car> cars = new List<Car>(); // List to store Car objects
-        // Path to the input CSV file (ensure backslashes in file paths are escaped in C#)
-        string relativePath = @"resources\\SD-TA-001-B_DealershipStockList.csv";
+        
+        // Path to the input CSV file 
+        string relativePath = @"resources\SD-TA-001-B_DealershipStockList.csv";
+        bool firstLine = true;
 
-        string[] lines = File.ReadAllLines(relativePath);
-
-        bool firstLine = true; // Because first line is a header row, we skip it
-
-      
-        // Loop through every line in the CSV file
-        foreach (var line in lines)
+        using (var reader = new StreamReader(relativePath))
         {
-            // Skip the header row
-            if (firstLine)
+            string line;
+            while ((line = reader.ReadLine()) != null)
             {
-                firstLine = false;
-                continue;
-            }
-            if (debug)
-            {
-                Console.WriteLine("This line is: " + line);
-            }
-          
-
-            // Split() CSV line by commas to get fields
-            var fields = line.Split(',');
-
-            // Expecting exactly 5 fields: Registration, Make, Model, Mileage, Price
-            if (fields.Length == 5)
-            {
-                if (debug)
+                if (firstLine) //Skip the header line in the CSV file
                 {
-                    Console.WriteLine("Input field is length 5!");
+                    firstLine = false;
+                    continue;
                 }
-                // Convert the line of text into a Car object
+
+                var fields = line.Split(',');
+
                 var car = new Car
                 {
                     Registration = fields[0],
                     Make = fields[1],
                     Model = fields[2],
-                    Mileage = int.Parse(fields[3]), // Convert string to int
-                    Price = int.Parse(fields[4])    
+                    Mileage = int.Parse(fields[3]),
+                    Price = int.Parse(fields[4])
                 };
 
-                // Add the new car to the list
                 cars.Add(car);
             }
-            else
-            {
-                if (debug)
-                {
-                    Console.WriteLine("Field is not length 5!");
-                }
-            }
         }
- 
+
+
 
         // Calculate statistics using helper methods
         double avgPrice = CalculateAverage(cars, car => car.Price);    // Selector picks Price
@@ -152,7 +130,7 @@ class Program
         if (debug)
         {
             // Output total cars read into the list
-            Console.WriteLine("The car length is: " + cars.Count());
+            Console.WriteLine("The total amount of cars is: " + cars.Count());
             // Loop through list and print each car's details
             foreach (var car in cars)
             {
